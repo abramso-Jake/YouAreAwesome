@@ -47,6 +47,7 @@ struct ContentView: View {
                         }
                         
                     }
+                   
                 
                 Spacer()
                 
@@ -67,7 +68,9 @@ struct ContentView: View {
                 }
                 .buttonStyle(.borderedProminent)
                 .font(.title2)
+                
             }
+            .tint(.accentColor)
         }
         .padding()
         
@@ -84,6 +87,7 @@ struct ContentView: View {
         do {
             audioPlayer = try AVAudioPlayer(data: soundFile.data)
             audioPlayer.play()
+            
         } catch{
             print("😡 ERROR: \(error.localizedDescription) creating audioPlayer")
         }
@@ -92,12 +96,18 @@ struct ContentView: View {
     func nonRepeatingRandom(lastNumber: Int, upperBounds: Int) -> Int{
         var newNum: Int
         repeat{
-            newNum = Int.random(in: 0...upperBounds-1)
+            newNum = Int.random(in: 0...upperBounds)
         } while newNum == lastNumber
         return newNum
     }
 }
 
-#Preview {
+#Preview("Light Mode") {
     ContentView()
+        .preferredColorScheme(.light)
+}
+
+#Preview("Dark Mode") {
+    ContentView()
+        .preferredColorScheme(.dark)
 }
