@@ -50,7 +50,7 @@ struct ContentView: View {
                    
                 
                 Spacer()
-                
+                //Button code
                 Button("Show Message") {
                     let messages = ["You are Awesome!", "When the Genius Bar Needs Help, They Call You!", "You are Great!", "You Are Fantastic!", "Fabulous? That's You", "Keep it up!", "You Make Me Smile"]
                     
